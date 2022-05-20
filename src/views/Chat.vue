@@ -2,7 +2,8 @@
 import { getAuth } from "firebase/auth"
 import { ref } from 'vue'
 
-import Background from "../components/background.vue"
+import Input from "../components/Input.vue"
+import Messages from "../components/Messages.vue"
 
 const auth = getAuth()
 const name = ref(auth.currentUser.displayName)
@@ -19,12 +20,9 @@ const signOut = () => {
             <p class="text-white text-lg ml-3 w-[200px]">{{name}}</p>
             <button class="text-white text-lg bg-white/40 hover:bg-white/60 p-2 mr-2 rounded-lg" @click="signOut">Sign Out</button>
         </div>
-        <div class="bg-white/30 w-full h-4/5">
 
-        </div>
-        <div class="min-h-16 h-[10%] w-full bg-white">
-
-        </div>
+        <Messages />
+        <Input />
         </div>
 
     </main>
