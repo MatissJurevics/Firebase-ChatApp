@@ -1,12 +1,16 @@
 <script setup>
-import { getDoc, collection } from "firebase/firestore"
+import { getDocs, collection } from "firebase/firestore"
 import { db } from "../firebase"
 
 import Message from "./InMessage.vue"
 
-// const Messsages = async () => {
-//     await getDoc(collection(db, "messsages"))
-// }
+const getMessages = async () => {
+    const list = collection(db, 'messages');
+    let allMessages = await getDocs(list);
+    console.log(allMessages)
+    return allMessages
+}
+const list = getMessages()
 
 </script>
 
