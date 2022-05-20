@@ -1,8 +1,9 @@
 <script setup>
 import { signInWithPopup } from "@firebase/auth"
 import { getAuth, GoogleAuthProvider } from "firebase/auth"
+import { auth } from "../firebase"
 const provider = new GoogleAuthProvider
-const auth = getAuth()
+
 const AuthWithGoogle = () => {
     signInWithPopup(auth, provider)
 }

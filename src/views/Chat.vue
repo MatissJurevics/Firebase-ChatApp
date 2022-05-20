@@ -1,11 +1,12 @@
 <script setup>
 import { getAuth } from "firebase/auth"
 import { ref } from 'vue'
+import { auth } from '../firebase'
 
 import Input from "../components/Input.vue"
 import Messages from "../components/Messages.vue"
 
-const auth = getAuth()
+
 const name = ref(auth.currentUser.displayName)
 const signOut = () => {
     auth.signOut()
