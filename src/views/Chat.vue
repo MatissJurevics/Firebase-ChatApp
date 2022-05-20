@@ -1,5 +1,10 @@
 <script setup>
+import { getAuth } from "firebase/auth"
 
+const auth = getAuth()
+const signOut = () => {
+    auth.signOut()
+}
 </script>
 
 <template>

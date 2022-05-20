@@ -1,6 +1,7 @@
 <script  setup lang="ts">
 import { initializeApp } from "firebase/app"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
+import { ref } from "vue"
 
 import Chat from "./views/Chat.vue"
 import Login from "./views/Login.vue"
@@ -16,20 +17,22 @@ const firebaseApp = initializeApp({
 })
 
 const auth = getAuth()
-let loggedIn = false
+let loggedIn = ref(false)
 onAuthStateChanged(auth, user => {
   console.log("something happened:")
   if (user) {
-    loggedIn = true
+    loggedIn.value = true
   } else {
-    loggedIn = false
+    loggedIn.value = false
   }
-  console.log(loggedIn)
+  console.log(loggedIn.value)
 })
 
 </script>
 
 <template>
-<Chat v-if="loggedIn" />
+<Chat v-if="loggedIn == true" />
 <Login v-else />
+
+<div>true</div>
 </template>
