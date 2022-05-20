@@ -33,6 +33,6 @@ onAuthStateChanged(auth, user => {
 <template>
 <Chat v-if="loggedIn == true" />
 <Login v-else />
-
-<div>true</div>
 </template>
+
+
