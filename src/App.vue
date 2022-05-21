@@ -13,13 +13,12 @@ import Login from "./views/Login.vue"
 
 let loggedIn = ref(false)
 onAuthStateChanged(auth, user => {
-  console.log("something happened:")
+
   if (user) {
     loggedIn.value = true
   } else {
     loggedIn.value = false
   }
-  console.log(loggedIn.value)
 })
 
 </script>

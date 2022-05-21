@@ -1,20 +1,27 @@
 <script setup>
+
 import { ref } from 'vue'
 import { getAuth } from "firebase/auth"
-import { getDoc, addDoc, collection } from "firebase/firestore"
+import { getDoc, addDoc, collection, Timestamp } from "firebase/firestore"
 import { db } from "../firebase"
 
 const auth = getAuth()
 const inputVal = ref("")
 
 const log = async () => {
-    console.log("attempting to post...")
+    console.log("attempting to post...");
+    
     try {
+        if (inputVal.value === "") {
+          return false
+        }
         const newPost = await addDoc(collection(db, "messages"), {
             user: auth.currentUser.displayName,
-            message: inputVal.value
+            uid: auth.currentUser.uid,
+            uimg: auth.currentUser.photoURL,
+            message: inputVal.value,
+            Created: Timestamp.now()
         })
-
         console.log("Posted with ID: ", newPost.id);
 
     } catch (e) {
