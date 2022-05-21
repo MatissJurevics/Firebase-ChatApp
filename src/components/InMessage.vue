@@ -21,8 +21,9 @@ const remove = async (id) => {
 <template>
 
   <li v-if="uid !== auth.currentUser.uid" class="p-2 group flex flex-row items-center w-full min-h-8 transition duration-300 hover:bg-white/30">
-    <div class=" flex flex-row">
-        <span class="text-black/50 text-sm mb-1 hidden group-hover:flex">{{ author }}</span>
+    <div class=" flex flex-row items-center">
+        <img :src="imgURL" class="text-black/50 text-sm mb-1 h-6 w-6 rounded-full mr-2" >
+        
         <span class="max-w-[250px] min-h-8 p-1 px-2 bg-cyan-300 text-white rounded-xl">
             {{text}}
         </span>
