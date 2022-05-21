@@ -23,6 +23,7 @@ const log = async () => {
             Created: Timestamp.now()
         })
         console.log("Posted with ID: ", newPost.id);
+        inputVal.value = ""
 
     } catch (e) {
 
